@@ -23,9 +23,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name',
-        'email',
-        'password',
+        'name', 'email', 'password', 'points', 'years_ihg'
     ];
 
     /**
@@ -69,6 +67,14 @@ class User extends Authenticatable
 
     public function bids() {
         return $this->hasMany('App\Models\Bid', 'user_id', 'id');
+    }
+
+    public function biddingRound() {
+        $years_ihg = $this->years_ihg;
+        if ($years_ihg == 0) return 4;
+        if ($years_ihg == 1) return 3;
+        if ($years_ihg == 2) return 2;
+        if ($years_ihg >= 3) return 1;
     }
 
     public function numbers() {

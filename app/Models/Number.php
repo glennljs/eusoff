@@ -14,6 +14,11 @@ class Number extends Model
         return $this->belongsToMany('App\Models\User', 'bids', 'number_id', 'user_id');
     }
 
+    public function bids()
+    {
+        return $this->hasMany('App\Models\Bid')->orderBy('priority', 'asc');
+    }
+
     public function rank1users() {
         return $this->belongsToMany('App\Models\User', 'bids', 'number_id', 'user_id')->where('priority', 1);
     }

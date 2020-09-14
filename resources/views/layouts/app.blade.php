@@ -27,15 +27,22 @@
                         <div class="flex">
                             <!-- Logo -->
                             <div class="flex-shrink-0 flex items-center">
-                                <a href="/dashboard">
-                                    <x-jet-application-mark class="block h-9 w-auto" />
-                                </a>
+                                <img src="{{ asset('img/eusoff_smc_logo.jpg') }}" alt="Logo" href="/dashboard" width="48px" height="48px">
                             </div>
 
                             <!-- Navigation Links -->
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                                 <x-jet-nav-link href="/dashboard" :active="request()->routeIs('dashboard')">
                                     Dashboard
+                                </x-jet-nav-link>
+                                <x-jet-nav-link href="/sports" :active="request()->routeIs('sports')">
+                                    Sports
+                                </x-jet-nav-link>
+                                <x-jet-nav-link href="/numbers" :active="request()->routeIs('numbers')">
+                                    Numbers
+                                </x-jet-nav-link>
+                                <x-jet-nav-link href="/bidding" :active="request()->routeIs('bidding')">
+                                    Bidding
                                 </x-jet-nav-link>
                             </div>
                         </div>
@@ -129,6 +136,15 @@
                     <div class="pt-2 pb-3 space-y-1">
                         <x-jet-responsive-nav-link href="/dashboard" :active="request()->routeIs('dashboard')">
                             Dashboard
+                        </x-jet-responsive-nav-link>
+                        <x-jet-responsive-nav-link href="/sports" :active="request()->routeIs('sports')">
+                            Sports
+                        </x-jet-responsive-nav-link>
+                        <x-jet-responsive-nav-link href="/numbers" :active="request()->routeIs('numbers')">
+                            Numbers
+                        </x-jet-responsive-nav-link>
+                        <x-jet-responsive-nav-link href="/bidding" :active="request()->routeIs('bidding')">
+                            Bidding
                         </x-jet-responsive-nav-link>
                     </div>
 

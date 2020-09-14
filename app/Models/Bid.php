@@ -15,7 +15,7 @@ class Bid extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id', 'number', 'priority'
+        'user_id', 'number_id', 'priority'
     ];
 
     public function user()

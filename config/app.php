@@ -2,6 +2,8 @@
 
 return [
 
+    'bidding_round' => env('BIDDING_ROUND', 0),
+
     /*
     |--------------------------------------------------------------------------
     | Application Name

@@ -23,7 +23,7 @@ class NumberFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'taken' => $this->faker->boolean($chanceOfGettingTrue = 10)
         ];
     }
 }
