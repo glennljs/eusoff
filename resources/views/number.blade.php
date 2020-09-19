@@ -20,7 +20,10 @@
                                 <p class="text-2xl text-green-500">Number is currently available. No one has bid for it yet!</p>
                             @else
                                 @foreach ($number->bids as $bid)
-                                    <p>{{ $bid->user->name }} ({{ $bid->user->points }} points) bid for this as rank {{ $bid->priority }}.</p>
+                                    <p>
+                                        <a href="/profile/{{ $bid->user->id }}" class="text-blue-600">{{ $bid->user->name }} </a>
+                                        ({{ $bid->user->points }} points) bid for this as rank {{ $bid->priority }}.
+                                    </p>
                                 @endforeach
                             @endif
                         @endif

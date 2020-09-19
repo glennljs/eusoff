@@ -25,8 +25,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 Route::get('/hello', [HomeController::class, 'index'])->name('home');
-Route::get('/profile', [HomeController::class, 'profile']);
-Route::get('/public_profile/{id}', [HomeController::class, 'public_profile']);
+Route::get('/profile/{id}', [HomeController::class, 'profile']);
 Route::get('/sports', [HomeController::class, 'sports']);
 Route::get('/sport/{id}', [HomeController::class, 'sport']);
 Route::get('/numbers', [HomeController::class, 'numbers']);

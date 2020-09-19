@@ -17,25 +17,32 @@
                             The players in this sport are:
                             <ul class="list-decimal">
                                 @foreach ($sport->users as $player)
-                                    <li class="text-sm">
-                                        <a href="/public_profile/{{ $player->id }}">
-                                            {{ $player->name }} 
-                                            @if ($sport->captain_id == $player->id)
-                                                (C)
+                                    @if ($player->allocated_number != null)
+                                        <li class="text-sm">
+                                            <a href="/profile/{{ $player->id }}" class="text-blue-600">{{ $player->name }} </a>
+                                            has bid for and received number {{ $player->allocated_number }}.
+                                        </li>
+                                    @else
+                                        <li class="text-sm">
+                                            <a href="/profile/{{ $player->id }}" class="text-blue-600">
+                                                {{ $player->name }} 
+                                                @if ($sport->captain_id == $player->id)
+                                                    (C)
+                                                @endif
+                                            </a>
+                                            @if ($player->bids->count() > 0)
+                                                bidded for 
+                                                @for ($i = 1; $i <= $player->bids->count(); $i++)
+                                                    {{ $player->bids->where('priority', $i)->first()->number_id }}
+                                                    @if ($i < $player->bids->count())
+                                                        |
+                                                    @endif 
+                                                @endfor
+                                            @else 
+                                                has not bid currently
                                             @endif
-                                        </a>
-                                        @if ($player->bids->count() > 0)
-                                            bidded for 
-                                            @for ($i = 1; $i <= $player->bids->count(); $i++)
-                                                {{ $player->bids->where('priority', $i)->first()->number_id }}
-                                                @if ($i < $player->bids->count())
-                                                    |
-                                                @endif 
-                                            @endfor
-                                        @else 
-                                            has not bid currently
-                                        @endif
-                                    </li>
+                                        </li>
+                                    @endif
                                 @endforeach
                             </ol>     
                         </p>

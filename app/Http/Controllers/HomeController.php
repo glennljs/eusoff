@@ -24,16 +24,9 @@ class HomeController extends Controller
         ]);  
     }
 
-    public function profile()
+    public function profile($id)
     {
-        return view('actual.profile')->with([
-            'user' => Auth::user()
-        ]);
-    }    
-    
-    public function public_profile($id)
-    {
-        return view('actual.public_profile')->with([
+        return view('profile')->with([
             'user' => User::where('id', $id)->first()
         ]);
     }

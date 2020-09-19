@@ -52,6 +52,10 @@
             Your bids have been submitted!
         </x-jet-action-message>
 
+        <x-jet-action-message class="mr-3" on="duplicate">
+            <p class="text-red-600">Please key in unique numbers!!</p>
+        </x-jet-action-message>
+
         <x-jet-button>
             Submit
         </x-jet-button>

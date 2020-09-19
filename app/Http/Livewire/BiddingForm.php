@@ -26,6 +26,10 @@ class BiddingForm extends Component
     public function submit()
     {
         $this->validate();
+        if (count($this->rank) > count(array_unique($this->rank))) {
+            return $this->emit("duplicate");
+        }
+
         $user = Auth::user();
 
         // Execution doesn't reach here if validation fails.
