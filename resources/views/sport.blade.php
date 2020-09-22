@@ -31,7 +31,7 @@
                                                 @endif
                                             </a>
                                             @if ($player->bids->count() > 0)
-                                                bidded for 
+                                                ({{ $player->points }} points) bidded for 
                                                 @for ($i = 1; $i <= $player->bids->count(); $i++)
                                                     {{ $player->bids->where('priority', $i)->first()->number_id }}
                                                     @if ($i < $player->bids->count())
