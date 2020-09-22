@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/dashboard');
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
@@ -31,3 +31,4 @@ Route::get('/sport/{id}', [HomeController::class, 'sport']);
 Route::get('/numbers', [HomeController::class, 'numbers']);
 Route::get('/number/{id}', [HomeController::class, 'number']);
 Route::get('/bidding', [HomeController::class, 'bidding']);
+Route::get('/rules', [HomeController::class, 'rules']);

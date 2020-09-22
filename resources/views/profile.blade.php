@@ -10,22 +10,21 @@
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <div class="p-6 pb-14 sm:px-20 bg-white border-b border-gray-200">
                     <div class="mt-8 mb-6 text-2xl">
-                        Profile of {{ $user->name }}
+                        Profile of {{ $user->username }}
                     </div>
                     <div>
-                        <p>Your name is {{ $user->name }}</p>
-                        <p>Since you have played {{ $user->years_ihg }} years of IHG, your bidding round is: {{ $user->biddingRound() }}</p>
+                        <p>{{ $gender_object }} bidding round is: {{ $user->biddingRound() }}</p>
                         @if (isset($user->captainOf))
-                            <a href="/sport/{{ $user->captainOf->id }}"">You are the captain of <span class="text-blue-600">{{ $user->captainOf->name }}</span>.</a>
+                            <a href="/sport/{{ $user->captainOf->id }}">You are the captain of <span class="text-blue-600">{{ $user->captainOf->name }}</span>.</a>
                         @endif 
-                        <p>The number of points you have is {{ $user->points }}</p>
-                        <p>You are in these sports: 
+                        <p>The number of points {{ strtolower($gender_subject) }} has is {{ $user->points }}</p>
+                        <p>{{ $gender_subject }} is in these sports: 
                             @foreach ($user->sports as $sport)
                                 <a class="text-blue-700" href="/sport/{{ $sport->id }}">{{ $sport->name }}</a>, 
                             @endforeach
                         </p>
                         @if ($user->bids->count() > 0)
-                            <p>You bid for the following numbers: 
+                            <p>{{ $gender_subject }} bid for the following numbers: 
                                 @foreach ($user->bids as $bid)
                                     {{ $bid->number_id }},
                                 @endforeach

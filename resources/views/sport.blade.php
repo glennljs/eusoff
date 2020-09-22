@@ -19,13 +19,13 @@
                                 @foreach ($sport->users as $player)
                                     @if ($player->allocated_number != null)
                                         <li class="text-sm">
-                                            <a href="/profile/{{ $player->id }}" class="text-blue-600">{{ $player->name }} </a>
+                                            <a href="/profile/{{ $player->id }}" class="text-blue-600">{{ $player->username }} </a>
                                             has bid for and received number {{ $player->allocated_number }}.
                                         </li>
                                     @else
                                         <li class="text-sm">
                                             <a href="/profile/{{ $player->id }}" class="text-blue-600">
-                                                {{ $player->name }} 
+                                                {{ $player->username }} 
                                                 @if ($sport->captain_id == $player->id)
                                                     (C)
                                                 @endif

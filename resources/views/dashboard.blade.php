@@ -10,29 +10,49 @@
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <div class="p-6 pb-14 sm:px-20 bg-white border-b border-gray-200">
                     <div class="mt-8 mb-6 text-2xl">
-                        Your Sports Profile
+                        Profile
                     </div>
                     <div>
-                        <p>Your name is {{ $user->name }}</p>
-                        <p>Since you have played {{ $user->years_ihg }} years of IHG, your bidding round is: {{ $user->biddingRound() }}</p>
-                        @if (isset($user->captainOf))
-                            <a href="/sport/{{ $user->captainOf->id }}"">You are the captain of <span class="text-blue-600">{{ $user->captainOf->name }}</span>.</a>
-                        @endif 
-                        <p>The number of points you have is {{ $user->points }}</p>
-                        <p>You are in these sports: 
-                            @foreach ($user->sports as $sport)
-                                <a class="text-blue-700" href="/sport/{{ $sport->id }}">{{ $sport->name }}</a>, 
-                            @endforeach
-                        </p>
-                        @if ($user->bids->count() > 0)
-                            <p>You bid for the following numbers: 
-                                @foreach ($user->bids as $bid)
-                                    {{ $bid->number_id }},
+                        <div class="grid grid-cols-3 mb-5">
+                            <div>
+                                <h1 class="text-xl font-bold">Room Number:</h1>
+                                <p>{{ $user->username }}</p>
+                            </div>
+                            <div>
+                                <h1 class="text-xl font-bold">Bidding Round:</h1>
+                                <p>{{ $user->biddingRound() }}</p>
+                            </div>
+                            <div>
+                                <h1 class="text-xl font-bold">Total Points:</h1>
+                                <p>{{ $user->points }}</p>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 mb-5">
+                            <div>
+                                <h1 class="text-xl font-bold">Sports:</h1>
+                                @foreach ($user->sports as $sport)
+                                    <a class="text-blue-700" href="/sport/{{ $sport->id }}">{{ $sport->name }}</a>, 
                                 @endforeach
-                            </p>
-                        @else
-                            <p>You have yet to bid for your numbers</p>
-                        @endif
+                            </div>
+                            <div>
+                                @if ($user->taken)
+                                    <h1 class="text-xl font-bold">Allocated Number:</h1>
+                                    <p>{{ $user->allocated_number }}</p>
+                                @elseif ($user->hasBids())
+                                    <h1 class="text-xl font-bold">Bids:</h1>
+                                    <p>
+                                        @foreach ($user->bids as $bid)
+                                            {{ $bid->number_id }}
+                                            @if (!$loop->last)
+                                                |
+                                            @endif
+                                        @endforeach
+                                    </p>
+                                @else
+                                    <h1 class="text-xl font-bold">No bids made!!</h1>
+                                @endif
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

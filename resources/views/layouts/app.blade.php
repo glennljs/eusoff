@@ -35,6 +35,9 @@
                                 <x-jet-nav-link href="/dashboard" :active="request()->routeIs('dashboard')">
                                     Dashboard
                                 </x-jet-nav-link>
+                                <x-jet-nav-link href="/rules" :active="request()->routeIs('rules')">
+                                    Rules
+                                </x-jet-nav-link>
                                 <x-jet-nav-link href="/sports" :active="request()->routeIs('sports')">
                                     Sports
                                 </x-jet-nav-link>
@@ -51,8 +54,9 @@
                         <div class="hidden sm:flex sm:items-center sm:ml-6">
                             <x-jet-dropdown align="right" width="48">
                                 <x-slot name="trigger">
-                                    <button class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition duration-150 ease-in-out">
-                                        <img class="h-8 w-8 rounded-full" src="{{ Auth::user()->profile_photo_url }}" alt="" />
+                                    <button class="flex text-sm border-2 border-transparent rounded-full focus:outline-none  transition duration-150 ease-in-out">
+                                        <span>Menu</span>
+                                        {{-- <img class="h-8 w-8 rounded-full" src="{{ Auth::user()->profile_photo_url }}" alt="" /> --}}
                                     </button>
                                 </x-slot>
 
@@ -136,6 +140,9 @@
                     <div class="pt-2 pb-3 space-y-1">
                         <x-jet-responsive-nav-link href="/dashboard" :active="request()->routeIs('dashboard')">
                             Dashboard
+                        </x-jet-responsive-nav-link>
+                        <x-jet-responsive-nav-link href="/rules" :active="request()->routeIs('rules')">
+                            Rules
                         </x-jet-responsive-nav-link>
                         <x-jet-responsive-nav-link href="/sports" :active="request()->routeIs('sports')">
                             Sports

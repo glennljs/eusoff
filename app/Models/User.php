@@ -23,7 +23,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'username', 'password', 'points', 'years_ihg'
+        'name', 'username', 'password', 'points', 'years_ihg', 'allocated_number'
     ];
 
     /**
@@ -63,6 +63,10 @@ class User extends Authenticatable
 
     public function captainOf() {
         return $this->hasOne('App\Models\Sport', 'captain_id', 'id');
+    }
+
+    public function hasBids() {
+        return $this->bids()->count() > 0;
     }
 
     public function bids() {

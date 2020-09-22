@@ -22,7 +22,7 @@
                                     @elseif ($number->bids->count() > 0)
                                         <td class="border px-4 py-2 bg-orange-300">
                                     @else
-                                        <td class="border px-4 py-2">
+                                        <td class="border px-4 py-2 bg-green-400">
                                     @endif
 
                                     @if ($number->taken)
@@ -46,7 +46,7 @@
                             <span class="text-xl">Legend: </span>
                             <span class="text-red-600">Taken</span>
                             <span class="text-orange-300">Contested</span>
-                            <span>Available</span>
+                            <span class="text-green-400">Available</span>
                         </div>
                     </div>
                 </div>

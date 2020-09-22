@@ -1,7 +1,14 @@
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
-            <x-jet-authentication-card-logo />
+            <div class="grid grid-cols-1 justify-items-center">
+                <div class="mb-2">
+                    <img class="rounded-md" style="display: block;" src="{{ asset('img/eusoff_smc_logo.jpg') }}" alt="Logo" href="/dashboard" width="80px" height="80px">
+                </div>
+                <div>
+                    <h1 class="text-4xl">Eusoff Jersey Bidding</h1>
+                </div>
+            </div>
         </x-slot>
 
         <x-jet-validation-errors class="mb-4" />
@@ -33,11 +40,11 @@
             </div>
 
             <div class="flex items-center justify-end mt-4">
-                @if (Route::has('password.request'))
+                {{-- @if (Route::has('password.request'))
                     <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
                         {{ __('Forgot your password?') }}
                     </a>
-                @endif
+                @endif --}}
 
                 <x-jet-button class="ml-4">
                     {{ __('Login') }}

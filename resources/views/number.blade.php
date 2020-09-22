@@ -21,7 +21,7 @@
                             @else
                                 @foreach ($number->bids as $bid)
                                     <p>
-                                        <a href="/profile/{{ $bid->user->id }}" class="text-blue-600">{{ $bid->user->name }} </a>
+                                        <a href="/profile/{{ $bid->user->id }}" class="text-blue-600">{{ $bid->user->username }} </a>
                                         ({{ $bid->user->points }} points) bid for this as rank {{ $bid->priority }}.
                                     </p>
                                 @endforeach

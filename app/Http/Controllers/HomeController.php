@@ -27,7 +27,9 @@ class HomeController extends Controller
     public function profile($id)
     {
         return view('profile')->with([
-            'user' => User::where('id', $id)->first()
+            'user' => User::where('id', $id)->first(),
+            'gender_subject' => User::where('id', $id)->first()->gender == "male" ? "He" : "She",
+            'gender_object' => User::where('id', $id)->first()->gender == "male" ? "His" : "Her"
         ]);
     }
 
@@ -65,6 +67,11 @@ class HomeController extends Controller
             'user' => Auth::user(),
             'currentRound' => Config::get('app.bidding_round')
         ]);
+    }
+
+    public function rules()
+    {
+        return view('rules');
     }
 
 }
