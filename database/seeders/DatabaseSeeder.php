@@ -3,8 +3,9 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use bfinlay\SpreadsheetSeeder\SpreadsheetSeeder;
 
-class DatabaseSeeder extends Seeder
+class DatabaseSeeder extends SpreadsheetSeeder
 {
     /**
      * Seed the application's database.
@@ -13,6 +14,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // User::factory(10)->create();
+        $this->call([
+            UserSeeder::class,
+            UserSportsSeeder::class,
+            SportSeeder::class,
+            NumberSeeder::class
+        ]);
     }
 }
