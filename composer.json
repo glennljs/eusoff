@@ -17,7 +17,7 @@
         "laravel/sanctum": "^2.6",
         "laravel/tinker": "^2.0",
         "livewire/livewire": "^2.0",
-        "bfinlay/laravel-excel-seeder": "^2.1",
+        "bfinlay/laravel-excel-seeder": "^2.1"
     },
     "require-dev": {
         "facade/ignition": "^2.3.6",
