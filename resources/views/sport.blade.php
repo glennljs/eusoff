@@ -10,7 +10,7 @@
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <div class="p-6 pb-14 sm:px-20 bg-white border-b border-gray-200">
                     <div class="mt-8 mb-6 text-2xl">
-                        {{ $sport->name }} ({{ $sport->gender }})
+                        {{ $sport->name }} ({{ ucwords($sport->gender) }})
                     </div>
                     <div>
                         <p>
