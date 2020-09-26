@@ -6,6 +6,11 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateSportsTable extends Migration
 {
+    public function __construct()
+    {
+        DB::getDoctrineSchemaManager()->getDatabasePlatform()->registerDoctrineTypeMapping('enum', 'string');
+    }
+
     /**
      * Run the migrations.
      *
