@@ -15,7 +15,7 @@
                     @if ($user->biddingRound() == $currentRound)
                         @livewire('bidding-form')
                     @elseif ($currentRound == 0)
-                        <p>Jersey bidding has not started!!</p>
+                        <p>Jersey bidding is currently closed!! Please refer to Channel EH for the Bidding Schedule.</p>
                     @elseif ($user->biddingRound() < $currentRound)
                         <p>Sorry your round has ended already.</p>
                     @else
