@@ -11,11 +11,11 @@ class BiddingForm extends Component
     public $rank = [];
 
     protected $rules = [
-        'rank.1' => 'required|numeric|min:0|max:99',
-        'rank.2' => 'required|numeric|min:0|max:99',
-        'rank.3' => 'required|numeric|min:0|max:99',
-        'rank.4' => 'required|numeric|min:0|max:99',
-        'rank.5' => 'required|numeric|min:0|max:99'
+        'rank.1' => 'required|numeric|min:1|max:99',
+        'rank.2' => 'required|numeric|min:1|max:99',
+        'rank.3' => 'required|numeric|min:1|max:99',
+        'rank.4' => 'required|numeric|min:1|max:99',
+        'rank.5' => 'required|numeric|min:1|max:99'
     ];
 
     public function update($propertyName)

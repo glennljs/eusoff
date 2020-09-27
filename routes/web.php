@@ -29,6 +29,6 @@ Route::get('/profile/{id}', [HomeController::class, 'profile']);
 Route::get('/sports', [HomeController::class, 'sports']);
 Route::get('/sport/{id}', [HomeController::class, 'sport']);
 Route::get('/numbers', [HomeController::class, 'numbers']);
-Route::get('/number/{id}', [HomeController::class, 'number']);
+Route::get('/number/{id}/{gender}', [HomeController::class, 'number']);
 Route::get('/bidding', [HomeController::class, 'bidding']);
 Route::get('/rules', [HomeController::class, 'rules']);

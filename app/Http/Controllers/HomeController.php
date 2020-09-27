@@ -54,10 +54,14 @@ class HomeController extends Controller
         ]);
     }
 
-    public function number($id)
+    public function number($id, $gender)
     {
         return view('number')->with([
-            'number' => Number::where('id', $id)->first()
+            'number' => Number::where('id', $id)->first(),
+            'bids' => $gender == 1
+                ? Number::where('id', $id)->first()->maleBids()->get()
+                : Number::where('id', $id)->first()->femaleBids()->get(),
+            'gender' => $gender
         ]);
     }
 

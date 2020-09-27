@@ -10,19 +10,23 @@
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <div class="p-6 pb-14 sm:px-20 bg-white border-b border-gray-200">
                     <div class="mt-8 mb-6 text-2xl">
-                        Details for Number {{ $number->id }}
+                        Details for Number {{ $number->number }} ({{ $gender == 1 ? "Male" : "Female" }})
                     </div>
                     <div>
                         @if ($number->taken)
                         <p class="text-2xl text-red-600">Number is taken!!!</p>
                         @else
-                            @if ($number->bids->count() == 0)
+                            @if ($bids->count() == 0)
                                 <p class="text-2xl text-green-500">Number is currently available. No one has bid for it yet!</p>
                             @else
-                                @foreach ($number->bids as $bid)
+                                @foreach ($bids as $bid)
                                     <p>
                                         <a href="/profile/{{ $bid->user->id }}" class="text-blue-600">{{ $bid->user->username }} </a>
-                                        ({{ $bid->user->points }} points) bid for this as rank {{ $bid->priority }}.
+                                        ({{ $bid->user->points }} points) bid for this as rank {{ $bid->priority }}
+                                        @if ($bid->user->gender != $gender)
+                                            (Bidding from Mixed Sport)
+                                        @endif
+                                        .
                                     </p>
                                 @endforeach
                             @endif

@@ -23,7 +23,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'username', 'password', 'points', 'years_ihg', 'allocated_number'
+        'username', 'password', 'points', 'years_ihg', 'allocated_number', 'gender', 'has_mixed'
     ];
 
     /**
@@ -82,7 +82,7 @@ class User extends Authenticatable
     }
 
     public function numbers() {
-        return $this->belongsToMany('App\Models\Number', 'bids', 'user_id', 'number_id');
+        return $this->belongsToMany('App\Models\Number', 'bids', 'user_id', 'number');
     }
 
     public function rank1() {

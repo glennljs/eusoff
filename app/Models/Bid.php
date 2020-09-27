@@ -25,7 +25,7 @@ class Bid extends Model
 
     public function number()
     {
-        return $this->belongsTo('App\Models\Number', 'number_id', 'id');
+        return $this->belongsTo('App\Models\Number', 'number', 'id');
     }
 
 }

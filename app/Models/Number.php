@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 
 class Number extends Model
 {
@@ -17,6 +18,20 @@ class Number extends Model
     public function bids()
     {
         return $this->hasMany('App\Models\Bid')->orderBy('priority', 'asc');
+    }
+
+    public function maleBids()
+    {
+        return $this->bids()->whereHas('user', function (Builder $query) {
+            $query->where('gender', true)->orWhere('has_mixed', true);
+        });
+    }
+
+    public function femaleBids()
+    {
+        return $this->bids()->whereHas('user', function (Builder $query) {
+            $query->where('gender', false)->orWhere('has_mixed', true);
+        });
     }
 
     public function rank1users() {
