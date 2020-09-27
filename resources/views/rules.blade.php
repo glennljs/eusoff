@@ -38,9 +38,6 @@
                                         Captain: 1 point
                                     </li>
                                     <li>
-                                        Sport with minimum attendancce 70%: 1 point
-                                    </li>
-                                    <li>
                                         Made it through 1st cut: 1 point
                                     </li>
                                 </ul>
