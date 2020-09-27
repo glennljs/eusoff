@@ -17,10 +17,16 @@ class HttpsProtocol
      */
     public function handle($request, Closure $next)
     {
-            if (!$request->isSecure() && App::environment() === 'production') {
+        if (!app()->environment('local')) {
+            // for Proxies
+            Request::setTrustedProxies([$request->getClientIp()], 
+                Request::HEADER_X_FORWARDED_ALL);
+
+            if (!$request->isSecure()) {
                 return redirect()->secure($request->getRequestUri());
             }
+        }
 
-            return $next($request); 
+        return $next($request);
     }
 }
