@@ -5,7 +5,7 @@
     </x-slot>
 
     <x-slot name="description">
-        Key in your preferred numbers (0 - 99) by rank.
+        Key in your preferred numbers (1 - 99) by rank.
     </x-slot>
 
     <x-slot name="form">
