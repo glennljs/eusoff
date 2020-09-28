@@ -13,7 +13,7 @@
                         Details for Number {{ $number->id }} ({{ $gender == 1 ? "Male" : "Female" }})
                     </div>
                     <div>
-                        @if ($number->taken)
+                        @if ( $gender == 1 ? $number->taken_male : $number->taken_female)
                         <p class="text-2xl text-red-600">Number is taken!!!</p>
                         @else
                             @if ($bids->count() == 0)
