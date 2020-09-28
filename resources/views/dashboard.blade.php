@@ -35,7 +35,7 @@
                                 @endforeach
                             </div>
                             <div>
-                                @if ($user->taken)
+                                @if ($user->allocated_number != null)
                                     <h1 class="text-xl font-bold">Allocated Number:</h1>
                                     <p>{{ $user->allocated_number }}</p>
                                 @elseif ($user->hasBids())
