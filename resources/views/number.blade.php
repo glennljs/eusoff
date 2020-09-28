@@ -10,7 +10,7 @@
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <div class="p-6 pb-14 sm:px-20 bg-white border-b border-gray-200">
                     <div class="mt-8 mb-6 text-2xl">
-                        Details for Number {{ $number->number }} ({{ $gender == 1 ? "Male" : "Female" }})
+                        Details for Number {{ $number->id }} ({{ $gender == 1 ? "Male" : "Female" }})
                     </div>
                     <div>
                         @if ($number->taken)
