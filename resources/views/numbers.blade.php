@@ -34,7 +34,7 @@
                                         <td class="border px-4 py-2 w-20 bg-green-400">
                                     @endif
 
-                                    @if ($number->taken_female)
+                                    @if ($number->taken_male)
                                         {{ $number->id }}
                                     @elseif ($number->maleBids->count() > 0)
                                         <a href="/number/{{ $number->id }}/1">{{ $number->id }} ({{ $number->maleBids->count() }})</a>
@@ -60,7 +60,7 @@
                             <tbody>
                                 <tr>
                                 @foreach ($numbers as $number)
-                                    @if ($number->taken)
+                                    @if ($number->taken_female)
                                         <td class="border px-4 py-2 w-20 bg-red-600">
                                     @elseif ($number->femaleBids->count() > 0)
                                         <td class="border px-4 py-2 w-20 bg-orange-300">
@@ -68,7 +68,7 @@
                                         <td class="border px-4 py-2 w-20 bg-green-400">
                                     @endif
 
-                                    @if ($number->taken)
+                                    @if ($number->taken_female)
                                         {{ $number->id }}
                                     @elseif ($number->femaleBids->count() > 0)
                                         <a href="/number/{{ $number->id }}/0">{{ $number->id }} ({{ $number->femaleBids->count() }})</a>
