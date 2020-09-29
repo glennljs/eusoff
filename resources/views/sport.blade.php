@@ -22,7 +22,10 @@
                                             <a href="/profile/{{ $player->id }}" class="text-blue-600">{{ $player->username }} </a>
                                             has bid for and received number {{ $player->allocated_number }}.
                                         </li>
-                                    @else
+                                    @endif
+                                @endforeach
+                                @foreach ($sport->users as $player)
+                                    @if ($player->allocated_number == null)
                                         <li class="text-sm">
                                             <a href="/profile/{{ $player->id }}" class="text-blue-600">
                                                 {{ $player->username }} 
