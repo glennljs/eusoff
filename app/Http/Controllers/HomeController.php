@@ -50,7 +50,7 @@ class HomeController extends Controller
     public function numbers()
     {
         return view('numbers')->with([
-            'numbers' => Number::all()
+            'numbers' => Number::orderBy('id', 'asc')->get()
         ]);
     }
 
