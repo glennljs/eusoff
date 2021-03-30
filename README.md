@@ -2,7 +2,8 @@
 
 ### Installation:
 1. Pull Repo.
-2. Set up .env file by duplicating the .env.example file (Especially database settings - for local usage, see "Setting up SQLite").
+2. Install dependencies via "composer install"
+3. Set up .env file by duplicating the .env.example file (Especially database settings - for local usage, see "Setting up SQLite").
 4. Migrate databases with "php artisan migrate".
 5. Serve (For local usage, use "php artisan serve").
 
